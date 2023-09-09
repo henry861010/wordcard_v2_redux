@@ -1,21 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import { layout } from './layout.js'; 
-import { wordslist } from "./features/words/wordslist";
-import { addWord } from "./features/words/addWord";
+import  Layout  from './layout'; 
+import  Wordslist  from "./features/words/wordslist";
+import  AddWord  from "./features/words/addWord";
+import  EditWord  from "./features/words/editWord";
+import  WordPage  from "./features/words/wordPage";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<layout/>}>
-        <Route index element={<wordslist/>}/>               {/* pathe: "/" */}
-        <Route path=":Word" element={<wordPage/>}/>         {/* pathe: "/:Word" */}
-        <Route path="edit/:Word" element={<wordslist/>}/>   {/* pathe: "/edit/:Word" */}
-        <Route path="addWord" element={<addWord/>}/>        {/* pathe: "/addWord" */}
+      <Route path="/" element={<Layout/>}>
+        <Route index element={<Wordslist/>}/>               {/* pathe: "/" */}
+        <Route path=":Word" element={<WordPage/>}/>         {/* pathe: "/:Word" */}
+        <Route path="edit/:Word" element={<EditWord/>}/>   {/* pathe: "/edit/:Word" */}
+        <Route path="addWord" element={<AddWord/>}/>        {/* pathe: "/addWord" */}
       </Route>
     </Routes>
   );
 }
 
 export default App;
+

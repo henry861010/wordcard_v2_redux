@@ -1,4 +1,4 @@
-import {createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initWords = [
         {
@@ -18,7 +18,7 @@ const initWords = [
                 }
             ],
             type1:[true, false, false, false],
-            type2:[false, false, false, false],
+            type2:[false, true, false, false],
         },
         {
             id: 1,
@@ -37,7 +37,7 @@ const initWords = [
                 }
             ],
             type1:[true, false, false, false],
-            type2:[false, false, false, false],
+            type2:[true, false, false, false],
         },
         {
             id: 2,
@@ -56,7 +56,7 @@ const initWords = [
                 }
             ],
             type1:[true, false, false, false],
-            type2:[false, false, false, false],
+            type2:[false, true, false, false],
         },
         {
             id: 3,
@@ -75,7 +75,7 @@ const initWords = [
                 }
             ],
             type1:[true, false, false, false],
-            type2:[false, false, false, false],
+            type2:[false, false, true, false],
         },
         {
             id: 4,
@@ -94,7 +94,7 @@ const initWords = [
                 }
             ],
             type1:[true, false, false, false],
-            type2:[false, false, false, false],
+            type2:[false, false, false, true],
         },
         {
             id: 5,
@@ -113,18 +113,19 @@ const initWords = [
                 }
             ],
             type1:[true, false, false, false],
-            type2:[false, false, false, false],
+            type2:[false, true, false, false],
         }
 ];
-const initValue = {
+
+const initialState = {
     words: initWords,
-    status: "pending",  //pending, fullfilled, error 
+    status: "fullfilled",  //pending, fullfilled, error 
     error: null
 }
 
 const wordsSlice = createSlice({
-    name: words,
-    initValue,
+    name: 'words',
+    initialState,
     reducers:{
         addWord: {
             reducer(state, action){
@@ -149,7 +150,10 @@ const wordsSlice = createSlice({
             reducer(state, action){
                 const id = action.payload.id;
                 const newWord = action.payload;
-                state.words[id] = newWord;
+                const newWords = state.words.map((word, index) => (
+                    index===id?newWord:word
+                ));
+                state.words = newWords;
             },
             prepare(id, name, pronounce, descriptions, type1, type2){
                 return{
@@ -168,7 +172,7 @@ const wordsSlice = createSlice({
             reducer(state, action){
                 //create new words, beacuse the id of each wor will be redefined
                 const oldWords = state.words;
-                const newWords = oldWords.map((item)=(item.id===action.id?null:item)).filter(Boolean);
+                const newWords = oldWords.map((item)=>(item.id===action.id?null:item)).filter(Boolean);
                 state.words = newWords;
             },
             prepare(id){
@@ -186,9 +190,10 @@ const wordsSlice = createSlice({
     }
 });
 
-export default wordsSlice.reducer;
 export const {addWord, editWord, deleteWord} = wordsSlice.actions;
 export const selectorWords = (state) => (state.words.words);
-export const selectorWordByID = (state, id) => (state.words.words[id]);
+export const selectorWordByID = (state, id) =>
+    state.words.words.find((word) => String(word.id) === String(id))
 export const selectorStatus = (state) => (state.words.status);
 export const selectorsError = (state) => (state.words.error);
+export default wordsSlice.reducer;

@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
-import { useSelector } from "redux";
+import { useSelector } from "react-redux";
 import { selectorWordByID } from "./wordsSlice.js"
 
-const wordPageSimple = ({ id }) => {
-    const word = useSelector(selectorWordByID(id));
-
+const WordPageSimple = ({ word }) => {
     return(
         <>
             <article>
@@ -12,8 +10,8 @@ const wordPageSimple = ({ id }) => {
                 <h2>{word.name}</h2>
             </article>
             <Link to={`/${word.name}`}>view more</Link>
-            <link to={`/edit/${word.name}`}>Edit Word</link>
+            <Link to={`/edit/${word.name}`}>Edit Word</Link>
         </>
     );
 }
-export default wordPageSimple
+export default WordPageSimple

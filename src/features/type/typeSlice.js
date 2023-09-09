@@ -1,4 +1,4 @@
-import {createSlice} from "@deduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 
 
 const initTyp2 = [
@@ -47,14 +47,14 @@ const initTyp1 = [
     }
 ];
 
-const initValue = {
+const initialState = {
     type1: initTyp1,
     type2: initTyp2
 };
 
-const type2Slice = createSlice({
-    name: type,
-    initValue,
+const typeSlice = createSlice({
+    name: "type",
+    initialState,
     reducers: {
         addtype: {
             reducer(state, action){
@@ -74,7 +74,7 @@ const type2Slice = createSlice({
     }
 });
 
-export default type2Slice.reducer;
-export const {addType} = type2Slice.actions;
+export default typeSlice.reducer;
+export const {addType} = typeSlice.actions;
 export const selectorType1 = (state) => (state.type.type1);
 export const selectorType2 = (state) => (state.type.type2);

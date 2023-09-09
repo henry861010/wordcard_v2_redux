@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { useSelector } from "redux";
+import { useSelector } from "react-redux";
 import { selectorType1, selectorType2 } from "../type/typeSlice";
 import { selectorWords } from "./wordsSlice";
 
 
-const searchBar = ({ setSelectedWords }) => {
+const SearchBar = ({ setSelectedWords }) => {
     const type1 = useSelector(selectorType1);
     const type2 = useSelector(selectorType2);
     const words = useSelector(selectorWords);
@@ -28,7 +28,6 @@ const searchBar = ({ setSelectedWords }) => {
             selectedType2.map((ifType, index) => {
                 if( ifType && item.type2[index] ) ifType2 = true;
             });
-
             if( ifType1 && ifType2 &&  ifSection) return item;
             else return null
         }).filter(Boolean);
@@ -36,16 +35,16 @@ const searchBar = ({ setSelectedWords }) => {
     },[selectedType1, selectedType2, selectedsection])
 
     const changeSelectedType1 = (e) => {
-        const id = e.target.value.id;
+        const id = e.target.value;
         const checked = e.target.checked;
-        const newSelectedType1 = selectedType1.map((item, index)=>(index===id?checked:item));
+        const newSelectedType1 = selectedType1.map((item, index)=>(String(index)===id?checked:item));
         setSelectedType1(newSelectedType1);
     }
 
-    const changeselectedType2 = (e) => {
-        const id = e.target.value.id;
+    const changeSelectedType2 = (e) => {
+        const id = e.target.value;
         const checked = e.target.checked;
-        const newSelectedType2 = selectedType2.map((item, index)=>(index===id?checked:item));
+        const newSelectedType2 = selectedType2.map((item, index)=>(String(index)===id?checked:item));
         setSelectedType2(newSelectedType2);
     }
 
@@ -64,9 +63,9 @@ const searchBar = ({ setSelectedWords }) => {
                 placeholder='Search Items'
                 value={selectedsection}
                 onChange={changeselectedsection}
-            />
+            /><br/>
 
-            <label htmlFor="searchType1">search type1:</label>
+            <p>search type1:</p><br/>
             <ul id="searchType1">{
                 type1.map((item,index) => (
                     <li key={`type1${item.type}`}>
@@ -74,15 +73,16 @@ const searchBar = ({ setSelectedWords }) => {
                         <input
                             id={`searchBar${item.type}`}
                             type="checkbox"
-                            value={item}
+                            value={index}
                             checked={selectedType1[index]}
                             onClick={changeSelectedType1}
-                        />
+                            onChange={e => {}}
+                        /> {/*can avoid onChange={e => {}}? https://www.google.com/search?q=The+label%27s+for+attribute+doesn%27t+match+any+element+id.+This+might+prevent+the+browser+from+correctly+autofilling+the+form+and+accessibility+tools+from+working+correctly.+To+fix+this+issue%2C+make+sure+the+label%27s+for+attribute+references+the+correct+id+of+a+form+field.&oq=The+label%27s+for+attribute+doesn%27t+match+any+element+id.+This+might+prevent+the+browser+from+correctly+autofilling+the+form+and+accessibility+tools+from+working+correctly.+To+fix+this+issue%2C+make+sure+the+label%27s+for+attribute+references+the+correct+id+of+a+form+field.&aqs=chrome..69i57.661j0j7&sourceid=chrome&ie=UTF-8 */}
                     </li>
                 ))
             }</ul>
 
-            <label htmlFor="searchType2">search type1:</label>
+            <p>search type2:</p><br/>
             <ul id="searchType2">{
                 type2.map((item,index) => (
                     <li key={`type2${item.type}`}>
@@ -90,14 +90,15 @@ const searchBar = ({ setSelectedWords }) => {
                         <input
                             id={`searchBar${item.type}`}
                             type="checkbox"
-                            value={item}
-                            checked={selectedType1[index]}
+                            value={index}
+                            checked={selectedType2[index]}
                             onClick={changeSelectedType2}
-                        />
+                            onChange={e => {}}
+                        /> {/*can avoid onChange={e => {}}? https://www.google.com/search?q=The+label%27s+for+attribute+doesn%27t+match+any+element+id.+This+might+prevent+the+browser+from+correctly+autofilling+the+form+and+accessibility+tools+from+working+correctly.+To+fix+this+issue%2C+make+sure+the+label%27s+for+attribute+references+the+correct+id+of+a+form+field.&oq=The+label%27s+for+attribute+doesn%27t+match+any+element+id.+This+might+prevent+the+browser+from+correctly+autofilling+the+form+and+accessibility+tools+from+working+correctly.+To+fix+this+issue%2C+make+sure+the+label%27s+for+attribute+references+the+correct+id+of+a+form+field.&aqs=chrome..69i57.661j0j7&sourceid=chrome&ie=UTF-8 */}
                     </li>
                 ))
             }</ul>
         </>
     ); 
 }
-export default searchBar;
+export default SearchBar;

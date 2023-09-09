@@ -1,16 +1,16 @@
-import wordPageSimple from "./wordPageSimple.js";
+import WordPageSimple from "./wordPageSimple.js";
 
-const showWords = ({ selectedWords }) => {
+const ShowWords = ({ selectedWords }) => {
     return(
         <>{
             <ul>{
-                selectedWords.map((word) => (
-                    <li>
-                        <wordPageSimple id={word.id} />
+                selectedWords?.map((word,index) => (
+                    <li key={`selectedWords${index}`}>
+                        <WordPageSimple word={word} />
                     </li>
                 ))
             }</ul>
         }</>
     );
 }
-export default showWords
+export default ShowWords

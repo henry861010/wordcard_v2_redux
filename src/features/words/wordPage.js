@@ -1,9 +1,14 @@
-import { useSelector } from "redux";
-import { selectorWordByID } from "./wordsSlice.js"
-import { Link } from "react-router-dom"
+import { useSelector } from "react-redux";
+import { selectorWords } from "./wordsSlice"
+import { selectorType1, selectorType2 } from "../type/typeSlice"
+import { Link, useParams } from "react-router-dom"
 
-const wordPage = ({ id }) => {
-    const word = useSelector(selectorWordByID(id));
+const WordPage = () => {
+    const { Word } = useParams();
+    const type1 = useSelector(selectorType1);
+    const type2 = useSelector(selectorType2);
+    const words = useSelector(selectorWords);
+    const word = words.find((item) => (item.name === Word));
 
     return(
         <>
@@ -15,26 +20,49 @@ const wordPage = ({ id }) => {
                 <h3>pronounce:</h3>
                 <p>{word.pronounce}</p>
 
+                {/*type1*/}
+                <ul>{
+                    word.type1.map((item, index)=>{
+                        if(item) return(
+                            <li key={`wordPage-typ1${index}`}>
+                                <p>{type1[index].type}</p>
+                            </li>
+                        )
+                    })
+                }</ul>
+
+                {/*type2*/}
+                <ul>{
+                    word.type2.map((item, index)=>{
+                        if(item) return(
+                            <li key={`wordPage-typ2${index}`}>
+                                <p>{type2[index].type}</p>
+                            </li>
+                        )
+                    })
+                }</ul>
+
                 {/*description*/}
                 <h3>descriptions</h3>
                 <ol>{
-                    word.descriptions.map((description)=>(
-                        <li key={`${word.name}-${description.meaning}`}>
-                            <h4>{description.meaning}</h4>
-                            <p className="type">{description.type1}</p>
-                            <ul>{
-                                description.examples.map((example)=>(
-                                    <li>
+                    word.descriptions.map((description,index)=>(
+                        <li key={`${word.name}-description${index}`} style={{ border: '2px solid black' }}>
+                            <h4>meaning:{description.meaning}</h4>
+                            <p className="type">type: {description.type1}</p>
+                            <p>example:</p>
+                            <ol>{
+                                description.examples.map((example, indexExample)=>(
+                                    <li key={`${word.name}-description${index}-example${indexExample}`}>
                                         <p>{example}</p>
                                     </li>
                                 ))
-                            }</ul>
+                            }</ol>
                         </li>
                     ))
                 }</ol>
             </article>
-            <link to={`/edit/${word.name}`}>Edit Word</link>
+            <Link to={`/edit/${word.name}`}>Edit Word</Link>
         </>
     );
 }
-export default wordPage
+export default WordPage

@@ -1,4 +1,4 @@
-const addDescription = ({ id, descriptions, setDescriptions }) => {
+const AddDescription = ({ id, descriptions, setDescriptions }) => {
     const meaning = descriptions[id].meaning;
     const type1 = descriptions[id].type1;
     const examples = descriptions[id].examples;
@@ -6,20 +6,20 @@ const addDescription = ({ id, descriptions, setDescriptions }) => {
     return(
         <>
             {/*add meaning*/}
-            <label htmlFor="addDescription-meaning">name:</label>
+            <label htmlFor={`addDescription${id}-meaning`}>meaning:</label>
             <textarea
-                id = "addDescription-meaning"
+                id = {`addDescription${id}-meaning`}
                 placeholder="what's the meaning of word?"
                 value={meaning}
                 onChange={(e) => setDescriptions(descriptions.map((item, index)=>(
                     index===id?{...item,meaning: e.target.value}:item
                 )))}
-            />
+            /><br/>
 
             {/*add type1*/}
-            <label htmlFor="addDescription-type1">name:</label>
+            <label htmlFor={`addDescription${id}-type1`}>type1:</label>
             <select 
-                id="addDescription-type1" 
+                id={`addDescription${id}-type1`} 
                 value={type1} 
                 onChange={(e) => setDescriptions(descriptions.map((item, index)=>(
                     index===id?{...item,type1: e.target.value}:item
@@ -35,10 +35,10 @@ const addDescription = ({ id, descriptions, setDescriptions }) => {
             {/*add example*/}
             <ul>{
                 examples.map((item, index)=>(
-                    <li>
-                        <label htmlFor={`addDescription-example${index}`}>example{index}:</label>
+                    <li key={`addDescription${id}-example${index}`}>
+                        <label htmlFor={`addDescription${id}-example${index}`}>example{index}:</label>
                         <textarea
-                            id = {`addDescription-example${index}`}
+                            id = {`addDescription${id}-example${index}`}
                             placeholder="what's the example of word?"
                             value={item}
                             onChange={(e) => {
@@ -64,4 +64,4 @@ const addDescription = ({ id, descriptions, setDescriptions }) => {
         </>
     );
 }
-export default addDescription;
+export default AddDescription;
