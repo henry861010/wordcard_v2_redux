@@ -1,9 +1,10 @@
-import { useSelector } from "react-redux";
-import { selectorWords } from "./wordsSlice"
+import { useSelector, useDispatch } from "react-redux";
+import { selectorWords, deleteNewWord } from "./wordsSlice"
 import { selectorType1, selectorType2 } from "../type/typeSlice"
 import { Link, useParams } from "react-router-dom"
 
 const WordPage = () => {
+    const dispatch = useDispatch();
     const { Word } = useParams();
     const type1 = useSelector(selectorType1);
     const type2 = useSelector(selectorType2);
@@ -62,6 +63,7 @@ const WordPage = () => {
                 }</ol>
             </article>
             <Link to={`/edit/${word.name}`}>Edit Word</Link>
+            <button type="button" onClick={()=>dispatch(deleteNewWord(word))}>delete</button>
         </>
     );
 }

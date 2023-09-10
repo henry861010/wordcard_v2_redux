@@ -1,127 +1,47 @@
-import { createSlice } from "@reduxjs/toolkit";
-
-const initWords = [
-        {
-            id: 0,
-            name: "apple",
-            pronounce: "[apple]",
-            descriptions: [
-                {
-                    meaning: "a fruit",
-                    type1: "n",
-                    examples: ["an apple a day, leave doctor away","i like apple"]
-                },
-                {
-                    meaning: "red",
-                    type1: "adj",
-                    examples: ["she is so apple","apple~~~"]
-                }
-            ],
-            type1:[true, false, false, false],
-            type2:[false, true, false, false],
-        },
-        {
-            id: 1,
-            name: "apple1",
-            pronounce: "[apple]",
-            descriptions: [
-                {
-                    meaning: "a fruit",
-                    type1: "n",
-                    examples: ["an apple a day, leave doctor away","i like apple"]
-                },
-                {
-                    meaning: "red",
-                    type1: "adj",
-                    examples: ["she is so apple","apple~~~"]
-                }
-            ],
-            type1:[true, false, false, false],
-            type2:[true, false, false, false],
-        },
-        {
-            id: 2,
-            name: "appl2",
-            pronounce: "[apple]",
-            descriptions: [
-                {
-                    meaning: "a fruit",
-                    type1: "n",
-                    examples: ["an apple a day, leave doctor away","i like apple"]
-                },
-                {
-                    meaning: "red",
-                    type1: "adj",
-                    examples: ["she is so apple","apple~~~"]
-                }
-            ],
-            type1:[true, false, false, false],
-            type2:[false, true, false, false],
-        },
-        {
-            id: 3,
-            name: "apple3",
-            pronounce: "[apple]",
-            descriptions: [
-                {
-                    meaning: "a fruit",
-                    type1: "n",
-                    examples: ["an apple a day, leave doctor away","i like apple"]
-                },
-                {
-                    meaning: "red",
-                    type1: "adj",
-                    examples: ["she is so apple","apple~~~"]
-                }
-            ],
-            type1:[true, false, false, false],
-            type2:[false, false, true, false],
-        },
-        {
-            id: 4,
-            name: "apple4",
-            pronounce: "[apple]",
-            descriptions: [
-                {
-                    meaning: "a fruit",
-                    type1: "n",
-                    examples: ["an apple a day, leave doctor away","i like apple"]
-                },
-                {
-                    meaning: "red",
-                    type1: "adj",
-                    examples: ["she is so apple","apple~~~"]
-                }
-            ],
-            type1:[true, false, false, false],
-            type2:[false, false, false, true],
-        },
-        {
-            id: 5,
-            name: "apple5",
-            pronounce: "[apple]",
-            descriptions: [
-                {
-                    meaning: "a fruit",
-                    type1: "n",
-                    examples: ["an apple a day, leave doctor away","i like apple"]
-                },
-                {
-                    meaning: "red",
-                    type1: "adj",
-                    examples: ["she is so apple","apple~~~"]
-                }
-            ],
-            type1:[true, false, false, false],
-            type2:[false, true, false, false],
-        }
-];
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
 const initialState = {
-    words: initWords,
-    status: "fullfilled",  //pending, fullfilled, error 
+    words: [],
+    status: "pending",  //pending, fullfilled, error 
     error: null
 }
+
+export const fetchWords = createAsyncThunk("words/fetchWords", async () =>{
+    console.log("begin!!!")
+    const response = await axios.get("http://127.0.0.1:7001/words")
+    console.log("get the result!!!"+response.data.length)
+    return response.data
+})
+
+export const addNewWord = createAsyncThunk("words/addNewWord", async (newWord) =>{
+    try {
+        const response = await axios.post("http://127.0.0.1:7001/words", newWord)
+        return response.data;
+    } catch (err) {
+        return err.message;
+    }
+})
+
+export const editNewWord = createAsyncThunk('words/editNewPost', async (newWord) => {
+    const { id } = newWord;
+    try {
+        const response = await axios.put(`http://127.0.0.1:7001/words/${id}`, newWord)
+        return response.data
+    } catch (err) {
+        return err.message;
+    }
+})
+
+export const deleteNewWord = createAsyncThunk('words/deleteNewPost', async (newWord) => {
+    const { id } = newWord;
+    try {
+        await axios.delete(`http://127.0.0.1:7001/words/${id}`)
+        return newWord
+    } catch (err) {
+        return err.message;
+    }
+})
 
 const wordsSlice = createSlice({
     name: 'words',
@@ -184,9 +104,35 @@ const wordsSlice = createSlice({
             }
         }
     },
-    extraReduces(build){
-        build
-            .addCase()
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchWords.pending,(state, action) => {
+                state.status = "pending";
+            })
+            .addCase(fetchWords.fulfilled,(state, action) => {
+                state.words = action.payload;
+                state.status = "fulfilled";
+            })
+            .addCase(fetchWords.rejected,(state, action) => {
+                console.log("error");
+                state.words = action.payload.message;
+                state.status = "error";
+            })
+            .addCase(addNewWord.fulfilled,(state, action) => {
+                state.words.push(action.payload);
+            })
+            .addCase(editNewWord.fulfilled,(state, action) => {
+                const newWord = action.payload;
+                const newWords = state.words.map((word, index) => (
+                    index===action.payload.id?newWord:word
+                ));
+                state.words = newWords;
+            })
+            .addCase(deleteNewWord.fulfilled,(state, action) => {
+                const oldWords = state.words;
+                const newWords = oldWords.filter( item => item.id!==action.payload.id);
+                state.words = newWords;
+            })
     }
 });
 
@@ -195,5 +141,5 @@ export const selectorWords = (state) => (state.words.words);
 export const selectorWordByID = (state, id) =>
     state.words.words.find((word) => String(word.id) === String(id))
 export const selectorStatus = (state) => (state.words.status);
-export const selectorsError = (state) => (state.words.error);
+export const selectorError = (state) => (state.words.error);
 export default wordsSlice.reducer;

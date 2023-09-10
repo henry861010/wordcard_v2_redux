@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectorType1, selectorType2 } from "../type/typeSlice";
-import { selectorWords, editWord } from "./wordsSlice";
+import { selectorWords, editNewWord } from "./wordsSlice";
 import { useParams } from 'react-router-dom';
 import AddDescription from "./addDescription";
 import { useNavigate } from "react-router-dom";
@@ -13,11 +13,12 @@ const EditWord = () => {
     const { Word } = useParams();
     const word = words.find((element) => element.name === Word)
 
-    const [ name, setName ] = useState(word?.name);
     const [ pronounce, setPronounce ] = useState(word?.pronounce);
     const [ descriptions, setDescriptions ] = useState(word?.descriptions);
     const [ type1, setType1 ] = useState(word?.type1);
     const [ type2, setType2 ] = useState(word?.type2);
+    const [ ifVaildType1, setifVaildType1 ] = useState(true);
+    const [ ifVaildType2, setifVaildType2 ] = useState(true);
 
     const dispatch = useDispatch();
 
@@ -34,6 +35,9 @@ const EditWord = () => {
             e.target.value===String(index)?e.target.checked:item
         ));
         setType1(newType1);
+
+        if( !newType1.filter( item => item ).length ) setifVaildType1(false);
+        else setifVaildType1(true);
     }
 
     const changeType2 = (e) => {
@@ -41,26 +45,30 @@ const EditWord = () => {
             e.target.value===String(index)?e.target.checked:item
         ));
         setType2(newType2);
+
+        if( !newType2.filter( item => item ).length ) setifVaildType2(false);
+        else setifVaildType2(true);
     }
 
     const edit = () => {
-        const id = words.length;
-        /* can add the check procedure!!! */
-        dispatch(editWord(word.id, name, pronounce, descriptions, type1, type2));
-        navigate(`/${Word}`);
+        if( ifVaildType1 && ifVaildType2 ) {
+            const editedWord = {
+                id: word.id,
+                name: word.name, 
+                pronounce, 
+                descriptions, 
+                type1, 
+                type2
+            }
+            dispatch(editNewWord(editedWord));
+            navigate(`/${Word}`);
+        }
     }
 
     return(
         <main>
             {/*add-name*/}
-            <label htmlFor="editWord-name">name:</label>
-            <input 
-                id = "editWord-name"
-                type = "text"
-                value = {name}
-                placeholder="what's the word?"
-                onChange={(e)=>{setName(e.target.value)}}
-            />
+            <h2>{word.name}</h2>
 
             {/*add-pronounce*/}
             <label htmlFor="editWord-pronounce">pronounce:</label>
@@ -85,7 +93,7 @@ const EditWord = () => {
             </section>
 
             {/*add-type1*/}
-            <p>type1:</p><br/>
+            <p>type1: </p><p className="warning">{ifVaildType1?"":"at least one type!"}</p><br/>
             <ul id="editWord-type1">{
                 _type1.map((item, index)=>(
                     <li key={`editWord-type1${index}`}>
@@ -103,7 +111,7 @@ const EditWord = () => {
             }</ul>
 
             {/*add-type2*/}
-            <p>type2:</p><br/>
+            <p>type2: </p><p className="warning">{ifVaildType2?"":"at least one type!"}</p><br/>
             <ul id="editWord-type2">{
                 _type2.map((item, index)=>(
                     <li key={`editWord-type2${index}`}>

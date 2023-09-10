@@ -32,7 +32,7 @@ const SearchBar = ({ setSelectedWords }) => {
             else return null
         }).filter(Boolean);
         setSelectedWords(newSelectedWords);
-    },[selectedType1, selectedType2, selectedsection])
+    },[selectedType1, selectedType2, selectedsection, words])
 
     const changeSelectedType1 = (e) => {
         const id = e.target.value;

@@ -1,0 +1,68 @@
+{
+  "words": [
+    {
+      "id": 5,
+      "name": "banana",
+      "pronounce": "vervr",
+      "descriptions": [
+        {
+          "meaning": "ervc",
+          "type1": "",
+          "examples": [
+            "vcerwd",
+            "revdc",
+            "revcerdvc"
+          ]
+        },
+        {
+          "meaning": "vreer",
+          "type1": "",
+          "examples": [
+            "j6twj4",
+            "6jmntnm4j6t",
+            "5rhj4t65"
+          ]
+        }
+      ],
+      "type1": [
+        true,
+        false,
+        false,
+        true
+      ],
+      "type2": [
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "name": "man",
+      "pronounce": "",
+      "descriptions": [
+        {
+          "meaning": "hbntrnbhtjrg",
+          "type1": "v.",
+          "examples": [
+            "nt5rnt6",
+            "jrtjnt6"
+          ]
+        }
+      ],
+      "type1": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "type2": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "id": 6
+    }
+  ]
+}
