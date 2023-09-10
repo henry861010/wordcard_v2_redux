@@ -65,7 +65,7 @@ const SearchBar = ({ setSelectedWords }) => {
                 onChange={changeselectedsection}
             /><br/>
 
-            <p>search type1:</p><br/>
+            <p>search type1:</p>
             <ul id="searchType1">{
                 type1.map((item,index) => (
                     <li key={`type1${item.type}`}>
@@ -82,7 +82,7 @@ const SearchBar = ({ setSelectedWords }) => {
                 ))
             }</ul>
 
-            <p>search type2:</p><br/>
+            <p>search type2:</p>
             <ul id="searchType2">{
                 type2.map((item,index) => (
                     <li key={`type2${item.type}`}>

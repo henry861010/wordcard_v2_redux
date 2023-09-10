@@ -63,6 +63,42 @@
         false
       ],
       "id": 6
+    },
+    {
+      "name": "apple",
+      "pronounce": "evve",
+      "descriptions": [],
+      "type1": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "type2": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "id": 7
+    },
+    {
+      "name": "cat",
+      "pronounce": "ff234f",
+      "descriptions": [],
+      "type1": [
+        false,
+        true,
+        false,
+        false
+      ],
+      "type2": [
+        false,
+        true,
+        false,
+        true
+      ],
+      "id": 8
     }
   ]
 }
