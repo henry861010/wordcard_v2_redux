@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# wordcard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+##openai-chat
+## notice
+1. the project uses the openai api which requires the api key in the http request. before running the project, set enviroment variable OPENAI_API_KEY to you openai api key. cmd: OPENAI_API_KEY=[your_api_key]
+(go to https://platform.openai.com/account/api-keys to require api key)
 
-In the project directory, you can run:
+## note
+1. the openai package updates to v4 from v3. some api in package are not supported anymore. to begin the openai project:
+older version(not avaiable):
+import { Configuration, OpenAIApi } from "openai";
+const configuration = new Configuration({
+    organization: "org-RxKuWyIn5DCxd9h4TCsOyFx5",
+    apiKey: process.env.OPENAI_API_KEY,
+});
+const openai = new OpenAIApi(configuration);
+const responseJSON = await openai.chat.completions.create();
 
-### `npm start`
+new version:
+import OpenAI from 'openai';
+const openai = new OpenAI({apiKey: process.env.OPENAI_API_KEY, dangerouslyAllowBrowser: true });
+const responseJSON = await openai.chat.completions.create();
+(reference: https://platform.openai.com/docs/guides/gpt/chat-completions-api)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## resource
+simple openai-chat project
+1. https://platform.openai.com/docs/guides/gpt/chat-completions-api
+2. https://rollbar.com/blog/chatgpt-api-with-javascript/ (take note that it uses the older version method to build the openai instance)
+openai-chat new function - function calling
+there exist the uncertain response of the openai. for example, although we require the response must be .json formate. the data type in .json may different in each time which let the programmer hard to deal with data. to overcome this problem, we can use "function calling" to  require the specific data structure of the response
+1. https://cobusgreyling.medium.com/practical-examples-of-openai-function-calling-a6419dc38775
+2. https://www.datacamp.com/tutorial/open-ai-function-calling-tutorial
+3. https://platform.openai.com/docs/guides/gpt

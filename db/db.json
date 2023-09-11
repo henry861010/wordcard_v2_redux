@@ -99,6 +99,180 @@
         true
       ],
       "id": 8
+    },
+    {
+      "name": "dog",
+      "pronounce": "",
+      "descriptions": [
+        {
+          "meaning": "a domesticated carnivorous mammal that typically has a long snout, an acute sense of smell, nonretractable claws, and a barking, howling, or whining voice.",
+          "type1": "noun",
+          "examples": [
+            "I have a pet dog named Max.",
+            "The dog chased its tail.",
+            "He trained his dog to perform tricks."
+          ]
+        },
+        {
+          "meaning": "a person regarded as unpleasant, contemptible, or wicked (used as a term of abuse).",
+          "type1": "noun",
+          "examples": [
+            "He's such a dirty dog.",
+            "You're a selfish dog.",
+            "She's a two-faced dog."
+          ]
+        },
+        {
+          "meaning": "a mechanical device for gripping or holding, especially one of the axial slots by which gear wheels or cams are engaged to transmit torque.",
+          "type1": "noun",
+          "examples": [
+            "The cogwheel engaged with the dog to drive the mechanism.",
+            "He adjusted the dog to ensure a secure grip.",
+            "The teeth of the dog caught on the gear and turned it."
+          ]
+        },
+        {
+          "meaning": "to follow or track someone or something relentlessly, especially persistently and annoyingly.",
+          "type1": "verb",
+          "examples": [
+            "The paparazzi would dog her every move.",
+            "His mistakes dogged him throughout his career.",
+            "The accusations continue to dog him."
+          ]
+        },
+        {
+          "meaning": "to pursue, chase, or bother persistently.",
+          "type1": "verb",
+          "examples": [
+            "Stop dogging me about that mistake.",
+            "The debt collectors were dogging him for months.",
+            "The detective doggedly pursued the suspect."
+          ]
+        }
+      ],
+      "type1": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "type2": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "id": 9
+    },
+    {
+      "name": "network",
+      "pronounce": "",
+      "descriptions": [
+        {
+          "meaning": "a group or system of interconnected people or things",
+          "type1": "noun",
+          "examples": [
+            "The company has a vast network of international partners.",
+            "The Internet is a global network of computers.",
+            "The subway network in the city is quite extensive."
+          ]
+        },
+        {
+          "meaning": "a system of communication or broadcasting",
+          "type1": "noun",
+          "examples": [
+            "The television network airs a variety of shows.",
+            "The radio network covers a wide geographic area.",
+            "The phone network experienced an outage yesterday."
+          ]
+        },
+        {
+          "meaning": "a group or organization that provides services or support to its members",
+          "type1": "noun",
+          "examples": [
+            "She joined a professional network to expand her career opportunities.",
+            "The alumni network helped him find a job after graduation.",
+            "The support network for new parents is invaluable."
+          ]
+        },
+        {
+          "meaning": "to connect or operate as part of a network",
+          "type1": "verb",
+          "examples": [
+            "The computers are networked together to share files.",
+            "He networked with industry professionals at the conference.",
+            "The devices are networked to promote efficiency."
+          ]
+        }
+      ],
+      "type1": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "type2": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "id": 10
+    },
+    {
+      "name": "fish",
+      "pronounce": "",
+      "descriptions": [
+        {
+          "meaning": "A cold-blooded vertebrate that lives in water, breathes through gills, and has fins for swimming.",
+          "type1": "noun",
+          "examples": [
+            "I caught a big fish in the lake.",
+            "Salmon is a popular fish in the seafood section.",
+            "Many people enjoy fishing as a recreational activity."
+          ]
+        },
+        {
+          "meaning": "To search for something by feeling around blindly with one's hands.",
+          "type1": "verb",
+          "examples": [
+            "I'm trying to fish for my keys in the dark.",
+            "She reached into the bag and fished out a pen.",
+            "The child fished around in the toy box for his favorite stuffed animal."
+          ]
+        },
+        {
+          "meaning": "To try to obtain something through scheming or trickery.",
+          "type1": "verb",
+          "examples": [
+            "The team is fishing for compliments after their successful performance.",
+            "He's always fishing for information to use against his rivals.",
+            "Don't let him fish for compliments, just give an honest evaluation."
+          ]
+        },
+        {
+          "meaning": "A person who is easy to deceive or manipulate.",
+          "type1": "noun",
+          "examples": [
+            "He's such a gullible fish, he falls for every scam.",
+            "Don't be a fish and believe everything you hear.",
+            "She's a fish when it comes to dealing with persuasive salespeople."
+          ]
+        }
+      ],
+      "type1": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "type2": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "id": 11
     }
   ]
 }

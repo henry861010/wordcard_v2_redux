@@ -4,6 +4,7 @@ import { selectorType1, selectorType2 } from "../type/typeSlice";
 import { selectorWords, addNewWord } from "./wordsSlice";
 import AddDescription from "./addDescription";
 import { useNavigate } from "react-router-dom";
+import OpenAI from 'openai';
 
 const AddWord = () => {
     const _type1 = useSelector(selectorType1);
@@ -11,6 +12,7 @@ const AddWord = () => {
     const words = useSelector(selectorWords);
 
     const [ name, setName ] = useState("");
+    const [ ifChatgptRun, setIfChatgptRun ] = useState("idle");
     const [ pronounce, setPronounce ] = useState("");
     const [ descriptions, setDescriptions ] = useState([]);
     const [ type1, setType1 ] = useState(_type1.map(item=>false));
@@ -20,8 +22,23 @@ const AddWord = () => {
     const [ ifVaildType2, setifVaildType2 ] = useState(false);
 
     const dispatch = useDispatch();
-
     const navigate = useNavigate();
+
+    const openai = new OpenAI({apiKey: process.env.OPENAI_API_KEY, dangerouslyAllowBrowser: true });
+
+    const askChatgpt = async () => {
+        setIfChatgptRun("running");
+    console.log("begin");
+        const responseJSON = await openai.chat.completions.create({
+            model: "gpt-3.5-turbo",
+            messages: [{"role": "system", "content": "You are a helpful assistant."},
+                {"role": "user", "content": `word=${name}. response in json without any other comment, it is an array of object named descriptions. each description presents the different meaning of the given word. description defined as {[meaning]: meaning of the word,[type1]: type of the word,[examples]: [example1, example2,...]}. fill the answer as much as possible and each description has 3 examples and ecah example as long as possible`}],
+        });
+    console.log("get the result");
+        const response = JSON.parse(responseJSON.choices[0].message.content);
+        setDescriptions([...descriptions, ...response.descriptions]);
+        setIfChatgptRun("idle");
+    }
 
     const emptyDescription = {
         meaning: "",
@@ -100,7 +117,10 @@ const AddWord = () => {
                         </li>
                     ))
                 }</ul>
-                <button onClick={() => setDescriptions([...descriptions,emptyDescription])}>Add Description</button>
+                <button 
+                    onClick={() => setDescriptions([...descriptions,emptyDescription])}
+                    disabled={ifChatgptRun==="running"?true:false}    
+                >Add Description</button>
             </section>
 
             {/*add-type1*/}
@@ -138,6 +158,12 @@ const AddWord = () => {
                     </li>
                 ))
             }</ul>
+
+            <button 
+                id="askChatgpt"
+                onClick={askChatgpt}
+                disabled={ifChatgptRun==="running"?true:false}
+            >ask chatgpt</button>
 
             <button 
                 id="addWord-button"
