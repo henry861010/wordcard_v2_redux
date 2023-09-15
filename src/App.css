@@ -1,0 +1,70 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.Wordslist {
+    display: flex;
+    justify-content: Space-evenly;
+    flex-direction: row;
+    margin-top: 3rem;
+}
+
+.Wordslist-right {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 30%;
+}
+
+.Wordslist-left {
+    width: 70%;
+}
+
+.WordsInfo{
+    border: 1px solid black;
+    padding: 1rem;
+}
+
+.ShowWords{
+    margin: 0 5px;
+}
+
+.ShowWords ul{
+    list-style-type: none;
+    text-align: center;
+    line-height: 1rem;
+}
+
+.WordPageSimple{
+    width: 100%;
+    max-width: 60rem;
+    border: 1px solid black;
+    padding: 4rem;
+    margin: 1rem;
+    border-radius: 8px;
+}
+
+.SearchBar{
+    display: flex;
+    flex-direction: column; 
+    justify-content: Space-between;
+    border: 1px solid black;
+    padding: 1em 2rem;
+}
+
+.SearchBar-type{
+    margin-top: 1em;
+}
+
+.SearchBar-word{
+}
+
+.addWord-link{
+    position: fixed;
+    bottom: 5rem;
+    right: 5rem;
+
+}

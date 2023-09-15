@@ -273,6 +273,70 @@
         false
       ],
       "id": 11
+    },
+    {
+      "name": "house",
+      "pronounce": "",
+      "descriptions": [
+        {
+          "meaning": "a building used as a place of dwelling for one or more individuals",
+          "type1": "noun",
+          "examples": [
+            "I live in a cozy house.",
+            "We are looking for a new house to buy.",
+            "The old house was in need of repair."
+          ]
+        },
+        {
+          "meaning": "a legislative or deliberative assembly",
+          "type1": "noun",
+          "examples": [
+            "The bill was passed by the House of Representatives.",
+            "The Senate and the House of Representatives make up the U.S. Congress.",
+            "There was a heated debate in the House over the proposed law."
+          ]
+        },
+        {
+          "meaning": "a family or lineage",
+          "type1": "noun",
+          "examples": [
+            "The Smiths are a respected house in the town.",
+            "He comes from a long line of noble houses.",
+            "The royal house has ruled for centuries."
+          ]
+        },
+        {
+          "meaning": "to provide lodging or accommodation",
+          "type1": "verb",
+          "examples": [
+            "We can house our guests in the spare bedroom.",
+            "The hotel is able to house up to 200 guests.",
+            "The university offers on-campus housing for students."
+          ]
+        },
+        {
+          "meaning": "to serve as a place of keeping or storing",
+          "type1": "verb",
+          "examples": [
+            "The warehouse can house large quantities of goods.",
+            "The museum houses a rare collection of art.",
+            "The library is housed in a historic building."
+          ]
+        }
+      ],
+      "type1": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "type2": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "id": 12
     }
   ]
 }

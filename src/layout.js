@@ -5,9 +5,10 @@ const Layout = ({ id }) => {
 
     return(
         <>  <div style={{ border: '2px solid black' }}>
-                <h1>WordCard</h1>
-                <Link to={`/`}>Home</Link>
-                <Link to={`/addWord`}>Add Word</Link>
+                <Link to={`/`}><h1>WordCard</h1></Link>
+                <Link  className="addWord-link" to={`/addWord`}>
+                    <img src="./add.png" alt="add" width="512" />
+                </Link>
             </div>
             <main className="App">
                 <Outlet />

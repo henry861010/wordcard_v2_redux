@@ -54,51 +54,57 @@ const SearchBar = ({ setSelectedWords }) => {
     }
 
     return(
-        <>
-            <label htmlFor="searchWord">search word:</label>
-            <input
-                id='searchWord'
-                type='text'
-                role='searchbox'
-                placeholder='Search Items'
-                value={selectedsection}
-                onChange={changeselectedsection}
-            /><br/>
+        <div className="SearchBar">
+            <div className="SearchBar-word">
+                <label htmlFor="searchWord">search word:</label>
+                <input
+                    id='searchWord'
+                    type='text'
+                    role='searchbox'
+                    placeholder='Search Items'
+                    value={selectedsection}
+                    onChange={changeselectedsection}
+                /><br/>
+            </div>
 
-            <p>search type1:</p>
-            <ul id="searchType1">{
-                type1.map((item,index) => (
-                    <li key={`type1${item.type}`}>
-                        <label htmlFor={`searchBar${item.type}`}>{item.type}</label>
-                        <input
-                            id={`searchBar${item.type}`}
-                            type="checkbox"
-                            value={index}
-                            checked={selectedType1[index]}
-                            onClick={changeSelectedType1}
-                            onChange={e => {}}
-                        /> {/*can avoid onChange={e => {}}? https://www.google.com/search?q=The+label%27s+for+attribute+doesn%27t+match+any+element+id.+This+might+prevent+the+browser+from+correctly+autofilling+the+form+and+accessibility+tools+from+working+correctly.+To+fix+this+issue%2C+make+sure+the+label%27s+for+attribute+references+the+correct+id+of+a+form+field.&oq=The+label%27s+for+attribute+doesn%27t+match+any+element+id.+This+might+prevent+the+browser+from+correctly+autofilling+the+form+and+accessibility+tools+from+working+correctly.+To+fix+this+issue%2C+make+sure+the+label%27s+for+attribute+references+the+correct+id+of+a+form+field.&aqs=chrome..69i57.661j0j7&sourceid=chrome&ie=UTF-8 */}
-                    </li>
-                ))
-            }</ul>
+            <div className="SearchBar-type">
+                <p>search type1:</p>
+                <ul id="searchType1">{
+                    type1.map((item,index) => (
+                        <li key={`type1${item.type}`}>
+                            <label htmlFor={`searchBar${item.type}`}>{item.type}</label>
+                            <input
+                                id={`searchBar${item.type}`}
+                                type="checkbox"
+                                value={index}
+                                checked={selectedType1[index]}
+                                onClick={changeSelectedType1}
+                                onChange={e => {}}
+                            /> {/*can avoid onChange={e => {}}? https://www.google.com/search?q=The+label%27s+for+attribute+doesn%27t+match+any+element+id.+This+might+prevent+the+browser+from+correctly+autofilling+the+form+and+accessibility+tools+from+working+correctly.+To+fix+this+issue%2C+make+sure+the+label%27s+for+attribute+references+the+correct+id+of+a+form+field.&oq=The+label%27s+for+attribute+doesn%27t+match+any+element+id.+This+might+prevent+the+browser+from+correctly+autofilling+the+form+and+accessibility+tools+from+working+correctly.+To+fix+this+issue%2C+make+sure+the+label%27s+for+attribute+references+the+correct+id+of+a+form+field.&aqs=chrome..69i57.661j0j7&sourceid=chrome&ie=UTF-8 */}
+                        </li>
+                    ))
+                }</ul>
+            </div>
 
-            <p>search type2:</p>
-            <ul id="searchType2">{
-                type2.map((item,index) => (
-                    <li key={`type2${item.type}`}>
-                        <label htmlFor={`searchBar${item.type}`}>{item.type}</label>
-                        <input
-                            id={`searchBar${item.type}`}
-                            type="checkbox"
-                            value={index}
-                            checked={selectedType2[index]}
-                            onClick={changeSelectedType2}
-                            onChange={e => {}}
-                        /> {/*can avoid onChange={e => {}}? https://www.google.com/search?q=The+label%27s+for+attribute+doesn%27t+match+any+element+id.+This+might+prevent+the+browser+from+correctly+autofilling+the+form+and+accessibility+tools+from+working+correctly.+To+fix+this+issue%2C+make+sure+the+label%27s+for+attribute+references+the+correct+id+of+a+form+field.&oq=The+label%27s+for+attribute+doesn%27t+match+any+element+id.+This+might+prevent+the+browser+from+correctly+autofilling+the+form+and+accessibility+tools+from+working+correctly.+To+fix+this+issue%2C+make+sure+the+label%27s+for+attribute+references+the+correct+id+of+a+form+field.&aqs=chrome..69i57.661j0j7&sourceid=chrome&ie=UTF-8 */}
-                    </li>
-                ))
-            }</ul>
-        </>
+            <div className="SearchBar-type">
+                <p>search type2:</p>
+                <ul id="searchType2">{
+                    type2.map((item,index) => (
+                        <li key={`type2${item.type}`}>
+                            <label htmlFor={`searchBar${item.type}`}>{item.type}</label>
+                            <input
+                                id={`searchBar${item.type}`}
+                                type="checkbox"
+                                value={index}
+                                checked={selectedType2[index]}
+                                onClick={changeSelectedType2}
+                                onChange={e => {}}
+                            /> {/*can avoid onChange={e => {}}? https://www.google.com/search?q=The+label%27s+for+attribute+doesn%27t+match+any+element+id.+This+might+prevent+the+browser+from+correctly+autofilling+the+form+and+accessibility+tools+from+working+correctly.+To+fix+this+issue%2C+make+sure+the+label%27s+for+attribute+references+the+correct+id+of+a+form+field.&oq=The+label%27s+for+attribute+doesn%27t+match+any+element+id.+This+might+prevent+the+browser+from+correctly+autofilling+the+form+and+accessibility+tools+from+working+correctly.+To+fix+this+issue%2C+make+sure+the+label%27s+for+attribute+references+the+correct+id+of+a+form+field.&aqs=chrome..69i57.661j0j7&sourceid=chrome&ie=UTF-8 */}
+                        </li>
+                    ))
+                }</ul>
+            </div>
+        </div>
     ); 
 }
 export default SearchBar;

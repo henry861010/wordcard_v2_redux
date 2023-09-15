@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectorType1, selectorType2 } from "../type/typeSlice";
 import { selectorWords, addNewWord } from "./wordsSlice";
@@ -20,11 +20,11 @@ const AddWord = () => {
     const [ ifVaildName, setifVaildName ] = useState(true);
     const [ ifVaildType1, setifVaildType1 ] = useState(false);
     const [ ifVaildType2, setifVaildType2 ] = useState(false);
+    const [ openaiKey , setOpenaiKey ] = useState("");
+    const [ openai , setOpenai ] = useState();
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
-    const openai = new OpenAI({apiKey: process.env.OPENAI_API_KEY, dangerouslyAllowBrowser: true });
 
     const askChatgpt = async () => {
         setIfChatgptRun("running");
@@ -89,14 +89,14 @@ const AddWord = () => {
     return(
         <main>
             {/*add-name*/}
-            <label htmlFor="addWord-name">name: </label>
+            <label htmlFor="addWord-name">name: <span className="warning">{ifVaildName?"":"same word already!"}</span></label>
             <input 
                 id = "addWord-name"
                 type = "text"
                 value = {name}
                 placeholder="what's the word?"
                 onChange={changeName}
-            /><p className="warning">{ifVaildName?"":"same word already!"}</p><br/>
+            />
 
             {/*add-pronounce*/}
             <label htmlFor="addWord-pronounce">pronounce:</label>
@@ -124,7 +124,7 @@ const AddWord = () => {
             </section>
 
             {/*add-type1*/}
-            <p>type1: </p><p className="warning">{ifVaildType1?"":"at least one type!"}</p><br/>
+            <p>type1: <span className="warning">{ifVaildType1?"":"at least one type!"}</span></p>
             <ul id="addWord-type1">{
                 _type1.map((item, index)=>(
                     <li key={`addWord-type1${index}`}>
@@ -142,7 +142,7 @@ const AddWord = () => {
             }</ul>
 
             {/*add-type2*/}
-            <p>type2: </p><p className="warning">{ifVaildType2?"":"at least one type!"}</p><br/>
+            <p>type2: <span className="warning">{ifVaildType2?"":"at least one type!"}</span></p>
             <ul id="addWord-type2">{
                 _type2.map((item, index)=>(
                     <li key={`addWord-type2${index}`}>
@@ -159,6 +159,17 @@ const AddWord = () => {
                 ))
             }</ul>
 
+            <label htmlFor="addWord-openaiKey">openai KEY: </label>
+            <input 
+                id = "addWord-openaiKey"
+                type = "text"
+                value = {openaiKey}
+                placeholder="what's the openai KEY?"
+                onChange={(e) => { 
+                    setOpenaiKey(e.target.value) 
+                    setOpenai(new OpenAI({apiKey: e.target.value, dangerouslyAllowBrowser: true }));
+                }}
+            /><p className="warning">{ifVaildName?"":"same word already!"}</p><br/>
             <button 
                 id="askChatgpt"
                 onClick={askChatgpt}
