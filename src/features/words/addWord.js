@@ -17,7 +17,7 @@ const AddWord = () => {
     const [ descriptions, setDescriptions ] = useState([]);
     const [ type1, setType1 ] = useState(_type1.map(item=>false));
     const [ type2, setType2 ] = useState(_type2.map(item=>false));
-    const [ ifVaildName, setifVaildName ] = useState(true);
+    const [ ifVaildName, setifVaildName ] = useState(false);
     const [ ifVaildType1, setifVaildType1 ] = useState(false);
     const [ ifVaildType2, setifVaildType2 ] = useState(false);
     const [ openaiKey , setOpenaiKey ] = useState("");
@@ -28,16 +28,21 @@ const AddWord = () => {
 
     const askChatgpt = async () => {
         setIfChatgptRun("running");
-    console.log("begin");
-        const responseJSON = await openai.chat.completions.create({
-            model: "gpt-3.5-turbo",
-            messages: [{"role": "system", "content": "You are a helpful assistant."},
-                {"role": "user", "content": `word=${name}. response in json without any other comment, it is an array of object named descriptions. each description presents the different meaning of the given word. description defined as {[meaning]: meaning of the word,[type1]: type of the word,[examples]: [example1, example2,...]}. fill the answer as much as possible and each description has 3 examples and ecah example as long as possible`}],
-        });
-    console.log("get the result");
-        const response = JSON.parse(responseJSON.choices[0].message.content);
-        setDescriptions([...descriptions, ...response.descriptions]);
-        setIfChatgptRun("idle");
+            console.log("begin");
+        try{
+            const responseJSON = await openai.chat.completions.create({
+                model: "gpt-3.5-turbo",
+                messages: [{"role": "system", "content": "You are a helpful assistant."},
+                    {"role": "user", "content": `word=${name}. response in json without any other comment, it is an array of object named descriptions. each description presents the different meaning of the given word. description defined as {[meaning]: meaning of the word,[type1]: type of the word,[examples]: [example1, example2,...]}. fill the answer as much as possible and each description has 3 examples and ecah example as long as possible`}],
+            });
+            console.log("get the result");
+            const response = JSON.parse(responseJSON.choices[0].message.content);
+            setDescriptions([...descriptions, ...response.descriptions]);
+            setIfChatgptRun("idle");
+        }catch(error){
+            console.log("the api key is unvalid!");
+            setIfChatgptRun("idle");
+        }
     }
 
     const emptyDescription = {
@@ -47,8 +52,7 @@ const AddWord = () => {
     };
     const changeName = (e) => {
         setName(e.target.value)
-
-        if( words.filter( item => item.name===e.target.value ).length ) setifVaildName(false);
+        if( words.filter( item => item.name===e.target.value ).length || e.target.value.length===0 ) setifVaildName(false);
         else setifVaildName(true);
     }
 
@@ -87,101 +91,115 @@ const AddWord = () => {
     }
 
     return(
-        <main>
+        <article className="WordPage">
             {/*add-name*/}
-            <label htmlFor="addWord-name">name: <span className="warning">{ifVaildName?"":"same word already!"}</span></label>
-            <input 
-                id = "addWord-name"
-                type = "text"
-                value = {name}
-                placeholder="what's the word?"
-                onChange={changeName}
-            />
+            <section className="AddWord-name">
+                <h3>name: </h3>
+                <input
+                    type = "text"
+                    value = {name}
+                    placeholder="what's the word?"
+                    onChange={changeName}
+                />
+                <p className="warning">{ifVaildName?"":"same word already or empty name!"}</p>
+            </section>
 
             {/*add-pronounce*/}
-            <label htmlFor="addWord-pronounce">pronounce:</label>
-            <input 
-                id = "addWord-pronounce"
-                type = "text"
-                value = {pronounce}
-                placeholder="what's the pronounce of word?"
-                onChange={(e)=>{setPronounce(e.target.value)}}
-            /><br/>
+            <section className="AddWord-pronounce">
+                <h3>pronounce:</h3>
+                <input 
+                    type = "text"
+                    value = {pronounce}
+                    placeholder="what's the pronounce of word?"
+                    onChange={(e)=>{setPronounce(e.target.value)}}
+                />
+            </section>
+
+            <section className="AddWord-types">
+                {/*add-type1*/}
+                <div className="AddWord-type">
+                    <span className="AddWord-type-warning"><h3>type1: </h3><p className="warning">{ifVaildType1?"":"at least one type!"}</p></span>
+                    <ul>{
+                        _type1.map((item, index)=>(
+                            <li key={`addWord-type1${index}`}>
+                                <label htmlFor={`addWord-type1${item.type}`}>{item.type}</label>
+                                <input
+                                    id={`addWord-type1${item.type}`}
+                                    type="checkbox"
+                                    value={index}
+                                    checked={type1[index]}
+                                    onClick={changeType1}
+                                    onChange={e => {}}
+                                /> {/*can avoid onChange={e => {}}? https://www.google.com/search?q=The+label%27s+for+attribute+doesn%27t+match+any+element+id.+This+might+prevent+the+browser+from+correctly+autofilling+the+form+and+accessibility+tools+from+working+correctly.+To+fix+this+issue%2C+make+sure+the+label%27s+for+attribute+references+the+correct+id+of+a+form+field.&oq=The+label%27s+for+attribute+doesn%27t+match+any+element+id.+This+might+prevent+the+browser+from+correctly+autofilling+the+form+and+accessibility+tools+from+working+correctly.+To+fix+this+issue%2C+make+sure+the+label%27s+for+attribute+references+the+correct+id+of+a+form+field.&aqs=chrome..69i57.661j0j7&sourceid=chrome&ie=UTF-8 */}
+                            </li>
+                        ))
+                    }</ul>
+                </div>
+
+                {/*add-type2*/}
+                <div className="AddWord-type">
+                    <span className="AddWord-type-warning"><h3>type2: </h3><p className="warning">{ifVaildType2?"":"at least one type!"}</p></span>
+                    <ul>{
+                        _type2.map((item, index)=>(
+                            <li key={`addWord-type2${index}`}>
+                                <label htmlFor={`addWord-type2${item.type}`}>{item.type}</label>
+                                <input
+                                    id={`addWord-type2${item.type}`}
+                                    type="checkbox"
+                                    value={index}
+                                    checked={type2[index]}
+                                    onClick={changeType2}
+                                    onChange={e => {}}
+                                /> {/*can avoid onChange={e => {}}? https://www.google.com/search?q=The+label%27s+for+attribute+doesn%27t+match+any+element+id.+This+might+prevent+the+browser+from+correctly+autofilling+the+form+and+accessibility+tools+from+working+correctly.+To+fix+this+issue%2C+make+sure+the+label%27s+for+attribute+references+the+correct+id+of+a+form+field.&oq=The+label%27s+for+attribute+doesn%27t+match+any+element+id.+This+might+prevent+the+browser+from+correctly+autofilling+the+form+and+accessibility+tools+from+working+correctly.+To+fix+this+issue%2C+make+sure+the+label%27s+for+attribute+references+the+correct+id+of+a+form+field.&aqs=chrome..69i57.661j0j7&sourceid=chrome&ie=UTF-8 */}
+                            </li>
+                        ))
+                    }</ul>
+                </div>
+            </section>
 
             {/*add-descriptions*/}
-            <section id = "addWord-descriptions" >
-                <ul>{
+            <section className="descriptions">
+                <h3>description: </h3>
+                <ol className="descriptions-list">{
                     descriptions.map((item, index)=>(
                         <li key={`addWord-description-${index}`} style={{ border: '2px solid black' }}>
                             <AddDescription id={index} descriptions={descriptions} setDescriptions={setDescriptions} />
                         </li>
                     ))
-                }</ul>
+                }</ol>
                 <button 
                     onClick={() => setDescriptions([...descriptions,emptyDescription])}
                     disabled={ifChatgptRun==="running"?true:false}    
                 >Add Description</button>
             </section>
 
-            {/*add-type1*/}
-            <p>type1: <span className="warning">{ifVaildType1?"":"at least one type!"}</span></p>
-            <ul id="addWord-type1">{
-                _type1.map((item, index)=>(
-                    <li key={`addWord-type1${index}`}>
-                        <label htmlFor={`addWord-type1${item.type}`}>{item.type}</label>
-                        <input
-                            id={`addWord-type1${item.type}`}
-                            type="checkbox"
-                            value={index}
-                            checked={type1[index]}
-                            onClick={changeType1}
-                            onChange={e => {}}
-                        /> {/*can avoid onChange={e => {}}? https://www.google.com/search?q=The+label%27s+for+attribute+doesn%27t+match+any+element+id.+This+might+prevent+the+browser+from+correctly+autofilling+the+form+and+accessibility+tools+from+working+correctly.+To+fix+this+issue%2C+make+sure+the+label%27s+for+attribute+references+the+correct+id+of+a+form+field.&oq=The+label%27s+for+attribute+doesn%27t+match+any+element+id.+This+might+prevent+the+browser+from+correctly+autofilling+the+form+and+accessibility+tools+from+working+correctly.+To+fix+this+issue%2C+make+sure+the+label%27s+for+attribute+references+the+correct+id+of+a+form+field.&aqs=chrome..69i57.661j0j7&sourceid=chrome&ie=UTF-8 */}
-                    </li>
-                ))
-            }</ul>
-
-            {/*add-type2*/}
-            <p>type2: <span className="warning">{ifVaildType2?"":"at least one type!"}</span></p>
-            <ul id="addWord-type2">{
-                _type2.map((item, index)=>(
-                    <li key={`addWord-type2${index}`}>
-                        <label htmlFor={`addWord-type2${item.type}`}>{item.type}</label>
-                        <input
-                            id={`addWord-type2${item.type}`}
-                            type="checkbox"
-                            value={index}
-                            checked={type2[index]}
-                            onClick={changeType2}
-                            onChange={e => {}}
-                        /> {/*can avoid onChange={e => {}}? https://www.google.com/search?q=The+label%27s+for+attribute+doesn%27t+match+any+element+id.+This+might+prevent+the+browser+from+correctly+autofilling+the+form+and+accessibility+tools+from+working+correctly.+To+fix+this+issue%2C+make+sure+the+label%27s+for+attribute+references+the+correct+id+of+a+form+field.&oq=The+label%27s+for+attribute+doesn%27t+match+any+element+id.+This+might+prevent+the+browser+from+correctly+autofilling+the+form+and+accessibility+tools+from+working+correctly.+To+fix+this+issue%2C+make+sure+the+label%27s+for+attribute+references+the+correct+id+of+a+form+field.&aqs=chrome..69i57.661j0j7&sourceid=chrome&ie=UTF-8 */}
-                    </li>
-                ))
-            }</ul>
-
-            <label htmlFor="addWord-openaiKey">openai KEY: </label>
-            <input 
-                id = "addWord-openaiKey"
-                type = "text"
-                value = {openaiKey}
-                placeholder="what's the openai KEY?"
-                onChange={(e) => { 
-                    setOpenaiKey(e.target.value) 
-                    setOpenai(new OpenAI({apiKey: e.target.value, dangerouslyAllowBrowser: true }));
-                }}
-            /><p className="warning">{ifVaildName?"":"same word already!"}</p><br/>
-            <button 
-                id="askChatgpt"
-                onClick={askChatgpt}
-                disabled={ifChatgptRun==="running"?true:false}
-            >ask chatgpt</button>
+            <section className="AddWord-openaiKey">
+                <div className="AddWord-openaiKey-box">
+                    <h3>openai KEY: </h3>
+                    <input 
+                        type = "text"
+                        value = {openaiKey}
+                        placeholder="what's the openai KEY?"
+                        onChange={(e) => { 
+                            setOpenaiKey(e.target.value) 
+                            setOpenai(new OpenAI({apiKey: e.target.value, dangerouslyAllowBrowser: true }));
+                        }}
+                    />
+                    <button 
+                        id="askChatgpt"
+                        onClick={askChatgpt}
+                        disabled={ifChatgptRun==="running"?true:false}
+                    >ask chatgpt</button>
+                </div>
+            </section>
 
             <button 
-                id="addWord-button"
+                className="AddWord-submit"
                 onClick={add}
+                disabled={(ifChatgptRun==="running")||!ifVaildType1||!ifVaildType2||!ifVaildName?true:false}
             >ADD WORD!</button>
 
-        </main>
+        </article>
     );
 }
 export default AddWord

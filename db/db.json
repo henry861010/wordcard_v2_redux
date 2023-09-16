@@ -1,108 +1,9 @@
 {
   "words": [
     {
-      "id": 5,
-      "name": "banana",
-      "pronounce": "vervr",
-      "descriptions": [
-        {
-          "meaning": "ervc",
-          "type1": "",
-          "examples": [
-            "vcerwd",
-            "revdc",
-            "revcerdvc"
-          ]
-        },
-        {
-          "meaning": "vreer",
-          "type1": "",
-          "examples": [
-            "j6twj4",
-            "6jmntnm4j6t",
-            "5rhj4t65"
-          ]
-        }
-      ],
-      "type1": [
-        true,
-        false,
-        false,
-        true
-      ],
-      "type2": [
-        true,
-        false,
-        true,
-        false
-      ]
-    },
-    {
-      "name": "man",
-      "pronounce": "",
-      "descriptions": [
-        {
-          "meaning": "hbntrnbhtjrg",
-          "type1": "v.",
-          "examples": [
-            "nt5rnt6",
-            "jrtjnt6"
-          ]
-        }
-      ],
-      "type1": [
-        true,
-        false,
-        false,
-        false
-      ],
-      "type2": [
-        true,
-        false,
-        false,
-        false
-      ],
-      "id": 6
-    },
-    {
-      "name": "apple",
-      "pronounce": "evve",
-      "descriptions": [],
-      "type1": [
-        true,
-        false,
-        false,
-        false
-      ],
-      "type2": [
-        true,
-        false,
-        false,
-        false
-      ],
-      "id": 7
-    },
-    {
-      "name": "cat",
-      "pronounce": "ff234f",
-      "descriptions": [],
-      "type1": [
-        false,
-        true,
-        false,
-        false
-      ],
-      "type2": [
-        false,
-        true,
-        false,
-        true
-      ],
-      "id": 8
-    },
-    {
+      "id": 9,
       "name": "dog",
-      "pronounce": "",
+      "pronounce": "gggg",
       "descriptions": [
         {
           "meaning": "a domesticated carnivorous mammal that typically has a long snout, an acute sense of smell, nonretractable claws, and a barking, howling, or whining voice.",
@@ -161,67 +62,12 @@
         false,
         false,
         false
-      ],
-      "id": 9
+      ]
     },
     {
-      "name": "network",
-      "pronounce": "",
-      "descriptions": [
-        {
-          "meaning": "a group or system of interconnected people or things",
-          "type1": "noun",
-          "examples": [
-            "The company has a vast network of international partners.",
-            "The Internet is a global network of computers.",
-            "The subway network in the city is quite extensive."
-          ]
-        },
-        {
-          "meaning": "a system of communication or broadcasting",
-          "type1": "noun",
-          "examples": [
-            "The television network airs a variety of shows.",
-            "The radio network covers a wide geographic area.",
-            "The phone network experienced an outage yesterday."
-          ]
-        },
-        {
-          "meaning": "a group or organization that provides services or support to its members",
-          "type1": "noun",
-          "examples": [
-            "She joined a professional network to expand her career opportunities.",
-            "The alumni network helped him find a job after graduation.",
-            "The support network for new parents is invaluable."
-          ]
-        },
-        {
-          "meaning": "to connect or operate as part of a network",
-          "type1": "verb",
-          "examples": [
-            "The computers are networked together to share files.",
-            "He networked with industry professionals at the conference.",
-            "The devices are networked to promote efficiency."
-          ]
-        }
-      ],
-      "type1": [
-        true,
-        false,
-        false,
-        false
-      ],
-      "type2": [
-        true,
-        false,
-        false,
-        false
-      ],
-      "id": 10
-    },
-    {
+      "id": 11,
       "name": "fish",
-      "pronounce": "",
+      "pronounce": "aaaaa",
       "descriptions": [
         {
           "meaning": "A cold-blooded vertebrate that lives in water, breathes through gills, and has fins for swimming.",
@@ -271,56 +117,101 @@
         false,
         false,
         false
-      ],
-      "id": 11
+      ]
     },
     {
-      "name": "house",
-      "pronounce": "",
+      "id": 13,
+      "name": "apple",
+      "pronounce": "apple",
       "descriptions": [
         {
-          "meaning": "a building used as a place of dwelling for one or more individuals",
+          "meaning": "a round fruit with red, green, or yellow skin and firm white flesh",
           "type1": "noun",
           "examples": [
-            "I live in a cozy house.",
-            "We are looking for a new house to buy.",
-            "The old house was in need of repair."
+            "She took a bite of the ripe apple.",
+            "He bought a bag of apples from the market.",
+            "The apple tree in her backyard produces delicious fruit."
           ]
         },
         {
-          "meaning": "a legislative or deliberative assembly",
+          "meaning": "the tree on which apples grow",
           "type1": "noun",
           "examples": [
-            "The bill was passed by the House of Representatives.",
-            "The Senate and the House of Representatives make up the U.S. Congress.",
-            "There was a heated debate in the House over the proposed law."
+            "The apple trees in the orchard were in full bloom.",
+            "He planted an apple tree in his garden.",
+            "The farmer took good care of his apple trees."
           ]
         },
         {
-          "meaning": "a family or lineage",
+          "meaning": "a computer company known for its innovative products",
           "type1": "noun",
           "examples": [
-            "The Smiths are a respected house in the town.",
-            "He comes from a long line of noble houses.",
-            "The royal house has ruled for centuries."
+            "He owns the latest Apple MacBook Pro.",
+            "She works as a software engineer at Apple.",
+            "I'm considering buying an Apple iPhone."
           ]
         },
         {
-          "meaning": "to provide lodging or accommodation",
+          "meaning": "to hit someone or something with force",
           "type1": "verb",
           "examples": [
-            "We can house our guests in the spare bedroom.",
-            "The hotel is able to house up to 200 guests.",
-            "The university offers on-campus housing for students."
+            "The boxer apples his opponent with a powerful punch.",
+            "He angrily appled the table with his fist.",
+            "She accidentally appled the ball into the neighbor's yard."
           ]
         },
         {
-          "meaning": "to serve as a place of keeping or storing",
-          "type1": "verb",
+          "meaning": "a term used to refer to a person, often a young woman, who is attractive and desirable",
+          "type1": "slang noun",
           "examples": [
-            "The warehouse can house large quantities of goods.",
-            "The museum houses a rare collection of art.",
-            "The library is housed in a historic building."
+            "She's such an apple, all the guys find her irresistible.",
+            "He is always surrounded by a group of apples.",
+            "The party was full of attractive apples."
+          ]
+        }
+      ],
+      "type1": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "type2": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "surf",
+      "pronounce": "reger4",
+      "descriptions": [
+        {
+          "meaning": "To ride on ocean waves using a surfboard",
+          "type1": "Verb",
+          "examples": [
+            "I love to surf during my beach vacations.",
+            "He spends hours every day surfing different beaches.",
+            "She is learning how to surf on the weekends."
+          ]
+        },
+        {
+          "meaning": "To browse or search through the internet",
+          "type1": "Verb",
+          "examples": [
+            "I like to surf the internet for interesting articles.",
+            "He spends a lot of time surfing social media.",
+            "She surfed the web to find information about the topic."
+          ]
+        },
+        {
+          "meaning": "A large or breaking wave",
+          "type1": "Noun",
+          "examples": [
+            "The surfs at the beach were perfect for riding today.",
+            "The surf was too rough, so they couldn't go swimming.",
+            "There was a surfer catching some big surf out there."
           ]
         }
       ],
@@ -336,7 +227,536 @@
         false,
         false
       ],
-      "id": 12
+      "id": 14
+    },
+    {
+      "name": "car",
+      "pronounce": "",
+      "descriptions": [
+        {
+          "meaning": "a vehicle with four wheels, powered by an engine, and typically used for transportation",
+          "type1": "noun",
+          "examples": [
+            "I need to buy a new car.",
+            "He drives a red sports car.",
+            "The car broke down on the highway."
+          ]
+        },
+        {
+          "meaning": "a wheeled conveyance for carrying goods",
+          "type1": "noun",
+          "examples": [
+            "The delivery truck is loaded with cars.",
+            "They transported the supplies in a car pulled by horses.",
+            "The train has special cars for carrying livestock."
+          ]
+        },
+        {
+          "meaning": "a part of a train, typically for passengers",
+          "type1": "noun",
+          "examples": [
+            "We traveled in the first-class car.",
+            "The train has six cars in total.",
+            "Please wait in the designated car for the disabled."
+          ]
+        },
+        {
+          "meaning": "a passenger compartment on an airplane",
+          "type1": "noun",
+          "examples": [
+            "The first-class car is very spacious.",
+            "I prefer sitting in the window seat of the car.",
+            "The car was equipped with personal entertainment screens."
+          ]
+        },
+        {
+          "meaning": "a unit of capacity for cargo ships",
+          "type1": "noun",
+          "examples": [
+            "The ship was carrying over 300 cars of cargo.",
+            "The car holds a significant amount of oil.",
+            "The captain calculated the maximum number of cars the ship could carry."
+          ]
+        }
+      ],
+      "type1": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "type2": [
+        false,
+        true,
+        false,
+        false
+      ],
+      "id": 15
+    },
+    {
+      "name": "computer",
+      "pronounce": "wsfvced",
+      "descriptions": [
+        {
+          "meaning": "An electronic device, capable of performing various operations and calculations, programmed to accept data, process it, and output the results",
+          "type1": "Noun",
+          "examples": [
+            "I use my computer to browse the internet.",
+            "She is a computer programmer.",
+            "The computer crashed and I lost all my work."
+          ]
+        },
+        {
+          "meaning": "A person who performs calculations or processes data using a computer",
+          "type1": "Noun",
+          "examples": [
+            "He is a computer by profession.",
+            "The company employs a team of computers to manage their data.",
+            "She is a skilled computer and can solve complex problems."
+          ]
+        },
+        {
+          "meaning": "A computerized system or network",
+          "type1": "Noun",
+          "examples": [
+            "The computer crashed due to a power outage.",
+            "The computer network is experiencing technical difficulties.",
+            "The company upgraded its computer infrastructure."
+          ]
+        },
+        {
+          "meaning": "A person who is skilled in using computers",
+          "type1": "Noun",
+          "examples": [
+            "He is a computer and can troubleshoot any software issues.",
+            "She is a computer and can quickly adapt to new technology.",
+            "The company hired a team of computers to provide technical support."
+          ]
+        },
+        {
+          "meaning": "Involving or using computers",
+          "type1": "Adjective",
+          "examples": [
+            "The company offers computer training courses.",
+            "I have a computer job that requires coding skills.",
+            "She is studying computer science at university."
+          ]
+        }
+      ],
+      "type1": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "type2": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "id": 16
+    },
+    {
+      "name": "glass",
+      "pronounce": "f23f",
+      "descriptions": [
+        {
+          "meaning": "a hard, brittle substance, typically transparent or translucent, made by fusing sand with soda, lime, and sometimes other ingredients and cooling rapidly. It is used to make windows, drinking containers, and other articles.",
+          "type1": "noun",
+          "examples": [
+            "She accidentally dropped the glass and it shattered into pieces.",
+            "He looked through the glass window to see if anyone was outside.",
+            "She poured some water into the glass and handed it to me."
+          ]
+        },
+        {
+          "meaning": "a container made of glass, especially one used for drinking.",
+          "type1": "noun",
+          "examples": [
+            "He raised his glass to toast the newlyweds.",
+            "She added some ice cubes and poured soda into the glass.",
+            "The bartender washed the glasses and placed them on the rack."
+          ]
+        },
+        {
+          "meaning": "a mirror.",
+          "type1": "noun",
+          "examples": [
+            "She caught a glimpse of herself in the glass on the wall.",
+            "The glass reflected the light, making the room appear brighter.",
+            "He adjusted his tie using the glass in the hallway."
+          ]
+        },
+        {
+          "meaning": "a lens, or a pair of lenses, used in eyeglasses or a microscope.",
+          "type1": "noun",
+          "examples": [
+            "She put on her glasses to read the small print.",
+            "The optometrist prescribed a new pair of glasses for him.",
+            "He used a magnifying glass to examine the tiny details."
+          ]
+        },
+        {
+          "meaning": "a device consisting of a flat or curved piece of glass or plastic that is held against the eye and through which visible objects are seen to create the illusion of three dimensions.",
+          "type1": "noun",
+          "examples": [
+            "He put on his virtual reality glasses to explore the virtual world.",
+            "The movie theater provides 3D glasses for an immersive experience.",
+            "She admired the artwork through a pair of special glasses."
+          ]
+        },
+        {
+          "meaning": "the quantity of liquid that a glass container can hold.",
+          "type1": "noun",
+          "examples": [
+            "She drank a full glass of water after her workout.",
+            "The bartender filled the wine glass to the brim.",
+            "The recipe calls for two glasses of milk."
+          ]
+        },
+        {
+          "meaning": "a kind or type of glass.",
+          "type1": "noun",
+          "examples": [
+            "He collects vintage glassware and displays them in a cabinet.",
+            "The stained glass windows in the cathedral are stunning.",
+            "She prefers drinking her beer from a pint glass."
+          ]
+        },
+        {
+          "meaning": "the liquid form of a substance, such as liquid cocaine.",
+          "type1": "noun",
+          "examples": [
+            "They smuggled drugs by hiding liquid cocaine in glass bottles.",
+            "The police seized a shipment of illegal glass.",
+            "The criminal organization specialized in trafficking glass."
+          ]
+        },
+        {
+          "meaning": "to reflect or mirror.",
+          "type1": "verb",
+          "examples": [
+            "His eyes were glassed with tears as he bid farewell.",
+            "The still lake glassed the surrounding landscape.",
+            "The building glassed the bright city lights in its windows."
+          ]
+        },
+        {
+          "meaning": "to enclose or encase with glass.",
+          "type1": "verb",
+          "examples": [
+            "The museum glassed the ancient artifact for protection.",
+            "They glassed the windows of the greenhouse to trap heat.",
+            "She carefully glassed the photograph to preserve it."
+          ]
+        }
+      ],
+      "type1": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "type2": [
+        true,
+        false,
+        true,
+        false
+      ],
+      "id": 17
+    },
+    {
+      "name": "paper",
+      "pronounce": "gr3we4g",
+      "descriptions": [
+        {
+          "meaning": "A material made from wood pulp or other fibrous material, used for writing, drawing, or printing on.",
+          "type1": "Noun",
+          "examples": [
+            "She wrote her thoughts down on a piece of paper",
+            "He handed me a paper to sign",
+            "We need more printer paper"
+          ]
+        },
+        {
+          "meaning": "A newspaper.",
+          "type1": "Noun",
+          "examples": [
+            "He enjoys reading the morning paper",
+            "I heard about the news in today's paper",
+            "She works for a local paper"
+          ]
+        },
+        {
+          "meaning": "A written or printed document or the main body of a treaties or legal instrument.",
+          "type1": "Noun",
+          "examples": [
+            "I need to submit my research paper",
+            "The lawyer drafted a legal paper",
+            "She signed the divorce papers"
+          ]
+        },
+        {
+          "meaning": "A scholarly article or essay.",
+          "type1": "Noun",
+          "examples": [
+            "He published a paper on the effects of climate change",
+            "She presented her findings at a conference paper",
+            "I'm currently working on a paper for my university course"
+          ]
+        },
+        {
+          "meaning": "A piece of paper currency.",
+          "type1": "Noun",
+          "examples": [
+            "The price of the item is five dollars, can you give me a five-dollar paper?",
+            "He paid for the meal with a twenty-dollar paper",
+            "The cashier handed me a paper and some coins as change"
+          ]
+        },
+        {
+          "meaning": "A set of examination questions to be answered in a specified time.",
+          "type1": "Noun",
+          "examples": [
+            "I was nervous before the exam, but I managed to complete the paper",
+            "The teacher handed out the test papers",
+            "She is studying for her final papers"
+          ]
+        },
+        {
+          "meaning": "A document submitted for academic or professional recognition.",
+          "type1": "Noun",
+          "examples": [
+            "He received a prestigious award for his paper on quantum physics",
+            "The conference requires authors to submit their papers for review",
+            "She is currently working on her doctoral paper"
+          ]
+        },
+        {
+          "meaning": "An official document giving access to certain rights or benefits, especially citizenship, or authorization to travel.",
+          "type1": "Noun",
+          "examples": [
+            "He received his naturalization papers and became a citizen",
+            "I need to renew my passport, as the paper is expiring",
+            "She presented her identification papers at the border"
+          ]
+        },
+        {
+          "meaning": "Documents or articles used as proof or evidence.",
+          "type1": "Noun",
+          "examples": [
+            "The police officer asked for the driver's papers",
+            "The lawyer presented the necessary papers to support her case",
+            "He kept all the important papers in a safe"
+          ]
+        },
+        {
+          "meaning": "An individual person's score in a game or contest.",
+          "type1": "Noun",
+          "examples": [
+            "After today's victory, our team is in the lead with the highest paper",
+            "She achieved a perfect paper in the math competition",
+            "He needs to improve his paper if he wants to win the tournament"
+          ]
+        }
+      ],
+      "type1": [
+        false,
+        false,
+        false,
+        true
+      ],
+      "type2": [
+        false,
+        true,
+        true,
+        false
+      ],
+      "id": 18
+    },
+    {
+      "id": 19,
+      "name": "science",
+      "pronounce": "science",
+      "descriptions": [
+        {
+          "meaning": "km6ytu7kmyukmyu",
+          "type1": "v.",
+          "examples": [
+            "y6nmjyt6jnyt6njh",
+            "ytnjmytttttnjnssssssssssssssssssssssssssssssssssssss"
+          ]
+        },
+        {
+          "meaning": "The study of the natural world and the knowledge gained from it.",
+          "type1": "Noun",
+          "examples": [
+            "She has a passion for science and enjoys conducting experiments in the lab.",
+            "The advancements made in science have greatly improved our understanding of the universe.",
+            "Science has helped us develop innovative technologies that have revolutionized various industries."
+          ]
+        },
+        {
+          "meaning": "A particular branch of knowledge or study, especially one dealing with a specific area or subject.",
+          "type1": "Noun",
+          "examples": [
+            "Political science is the study of governance, political systems, and behavior of individuals and groups within a society.",
+            "Computer science involves the study of algorithms, programming languages, and computer hardware to develop new technologies.",
+            "Environmental science focuses on understanding the interactions between humans and the natural environment to promote sustainable practices."
+          ]
+        }
+      ],
+      "type1": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "type2": [
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "name": "reinforcement",
+      "pronounce": "reinforcement",
+      "descriptions": [
+        {
+          "meaning": "The act or process of strengthening or encouraging something.",
+          "type1": "noun",
+          "examples": [
+            "Positive reinforcement is often used in behavior modification techniques.",
+            "The reinforcement of good behavior is important in child development.",
+            "Training dogs using reinforcement techniques is effective in changing their behavior."
+          ]
+        },
+        {
+          "meaning": "The process of increasing the strength of a response to a stimulus.",
+          "type1": "psychology",
+          "examples": [
+            "In classical conditioning, reinforcement is used to strengthen the association between a stimulus and a response.",
+            "Reinforcement can be positive or negative, depending on the type of stimulus used.",
+            "Token reinforcement is often used in therapy to reward desired behaviors."
+          ]
+        },
+        {
+          "meaning": "Additional troops or material sent to support or strengthen a military force.",
+          "type1": "noun",
+          "examples": [
+            "The reinforcements arrived just in time to support the frontline troops.",
+            "The commander called for reinforcements to secure the perimeter.",
+            "The platoon was outnumbered, but reinforcements turned the tide of the battle."
+          ]
+        }
+      ],
+      "type1": [
+        true,
+        false,
+        true,
+        false
+      ],
+      "type2": [
+        false,
+        true,
+        true,
+        false
+      ],
+      "id": 20
+    },
+    {
+      "name": "exploitation",
+      "pronounce": "exploitation",
+      "descriptions": [
+        {
+          "meaning": "The action or fact of treating someone unfairly in order to benefit from their work or resources.",
+          "type1": "noun",
+          "examples": [
+            "The company was accused of the exploitation of its workers.",
+            "Child labor is a form of exploitation.",
+            "Exploitation of natural resources is a major environmental concern."
+          ]
+        },
+        {
+          "meaning": "The action of making use of and benefiting from resources or situations in an unfair or selfish way.",
+          "type1": "noun",
+          "examples": [
+            "He was known for his ruthless exploitation of others.",
+            "The politician was criticized for his exploitation of the system for personal gain.",
+            "The rich man's exploitation of tax loopholes led to resentment among the general public."
+          ]
+        },
+        {
+          "meaning": "The act of making the full and productive use of something.",
+          "type1": "noun",
+          "examples": [
+            "The exploitation of renewable energy sources is crucial for a sustainable future.",
+            "Efficient exploitation of technology can lead to significant improvements in productivity.",
+            "The artist's exploitation of various mediums allowed for a diverse body of work."
+          ]
+        }
+      ],
+      "type1": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "type2": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "id": 21
+    },
+    {
+      "name": "robot",
+      "pronounce": "robot",
+      "descriptions": [
+        {
+          "meaning": "a machine capable of carrying out a complex series of actions automatically",
+          "type1": "noun",
+          "examples": [
+            "The factory uses robots to assemble cars.",
+            "She programmed the robot to clean the house.",
+            "The robot performed delicate surgery on the patient."
+          ]
+        },
+        {
+          "meaning": "a person who behaves mechanically or unemotively",
+          "type1": "noun",
+          "examples": [
+            "He's such a robot, always following orders without question.",
+            "She was like a robot, going through the motions without any real enthusiasm.",
+            "The politicians' speeches sounded robotic and insincere."
+          ]
+        },
+        {
+          "meaning": "a fictional or hypothetical machine resembling a human being, often capable of human-like intelligence and emotions",
+          "type1": "noun",
+          "examples": [
+            "The science fiction novel featured a robot as the main character.",
+            "In the movie, the robot developed feelings for its human companion.",
+            "The scientist is working on creating a robot with artificial consciousness."
+          ]
+        }
+      ],
+      "type1": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "type2": [
+        false,
+        true,
+        false,
+        false
+      ],
+      "id": 22
     }
   ]
 }

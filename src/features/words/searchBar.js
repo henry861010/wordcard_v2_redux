@@ -56,7 +56,7 @@ const SearchBar = ({ setSelectedWords }) => {
     return(
         <div className="SearchBar">
             <div className="SearchBar-word">
-                <label htmlFor="searchWord">search word:</label>
+                <label htmlFor="searchWord" className="unwrap">search word:</label>
                 <input
                     id='searchWord'
                     type='text'

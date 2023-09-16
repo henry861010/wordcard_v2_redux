@@ -66,74 +66,83 @@ const EditWord = () => {
     }
 
     return(
-        <main>
+        <article className="WordPage">
             {/*add-name*/}
             <h2>{word.name}</h2>
 
             {/*add-pronounce*/}
-            <label htmlFor="editWord-pronounce">pronounce:</label>
-            <input 
-                id = "editWord-pronounce"
-                type = "text"
-                value = {pronounce}
-                placeholder="what's the pronounce of word?"
-                onChange={(e)=>{setPronounce(e.target.value)}}
-            />
+            <section className="AddWord-pronounce">
+                <h3>pronounce:</h3>
+                <input 
+                    type = "text"
+                    value = {pronounce}
+                    placeholder="what's the pronounce of word?"
+                    onChange={(e)=>{setPronounce(e.target.value)}}
+                />
+            </section>
+
+            <section className="AddWord-types">
+                {/*add-type1*/}
+                <div className="AddWord-type">
+                    <span className="AddWord-type-warning"><h3>type1: </h3><p className="warning">{ifVaildType1?"":"at least one type!"}</p></span>
+                    <ul>{
+                        _type1.map((item, index)=>(
+                            <li key={`editWord-type1${index}`}>
+                                <label htmlFor={`editWord-type1${item.type}`}>{item.type}</label>
+                                <input
+                                    id={`editWord-type1${item.type}`}
+                                    type="checkbox"
+                                    value={index}
+                                    checked={type1[index]}
+                                    onClick={changeType1}
+                                    onChange={e => {}}
+                                />
+                            </li>
+                        ))
+                    }</ul>
+                </div>
+
+                {/*add-type2*/}
+                <div className="AddWord-type">
+                    <span className="AddWord-type-warning"><h3>type2: </h3><p className="warning">{ifVaildType2?"":"at least one type!"}</p></span>
+                    <ul>{
+                        _type2.map((item, index)=>(
+                            <li key={`editWord-type2${index}`}>
+                                <label htmlFor={`editWord-type2${item.type}`}>{item.type}</label>
+                                <input
+                                    id={`editWord-type2${item.type}`}
+                                    type="checkbox"
+                                    value={index}
+                                    checked={type2[index]}
+                                    onClick={changeType2}
+                                    onChange={e => {}}
+                                />
+                            </li>
+                        ))
+                    }</ul>
+                </div>
+            </section>
 
             {/*add-descriptions*/}
-            <section id = "editWord-descriptions">
-                <ul>{
+            <section className="descriptions">
+                <h3>description: </h3>
+                <ol className="descriptions-list">{
                     descriptions.map((item, index)=>(
                         <li key={`editWord-description-${index}`} style={{ border: '2px solid black' }}>
                             <AddDescription id={index} descriptions={descriptions} setDescriptions={setDescriptions} />
                         </li>
                     ))
-                }</ul>
+                }</ol>
                 <button onClick={() => setDescriptions([...descriptions,emptyDescription])}>Add Description</button>
             </section>
 
-            {/*add-type1*/}
-            <p>type1: </p><p className="warning">{ifVaildType1?"":"at least one type!"}</p><br/>
-            <ul id="editWord-type1">{
-                _type1.map((item, index)=>(
-                    <li key={`editWord-type1${index}`}>
-                        <label htmlFor={`editWord-type1${item.type}`}>{item.type}</label>
-                        <input
-                            id={`editWord-type1${item.type}`}
-                            type="checkbox"
-                            value={index}
-                            checked={type1[index]}
-                            onClick={changeType1}
-                            onChange={e => {}}
-                        />
-                    </li>
-                ))
-            }</ul>
-
-            {/*add-type2*/}
-            <p>type2: </p><p className="warning">{ifVaildType2?"":"at least one type!"}</p><br/>
-            <ul id="editWord-type2">{
-                _type2.map((item, index)=>(
-                    <li key={`editWord-type2${index}`}>
-                        <label htmlFor={`editWord-type2${item.type}`}>{item.type}</label>
-                        <input
-                            id={`editWord-type2${item.type}`}
-                            type="checkbox"
-                            value={index}
-                            checked={type2[index]}
-                            onClick={changeType2}
-                            onChange={e => {}}
-                        />
-                    </li>
-                ))
-            }</ul>
-
             <button 
-                id="editWord-button"
+                className="AddWord-submit"
                 onClick={edit}
+                disabled={!ifVaildType1||!ifVaildType2?true:false}
             >EDIT WORD!</button>
 
-        </main>
+        </article>
     );
 }
 export default EditWord

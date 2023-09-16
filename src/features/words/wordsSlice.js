@@ -27,7 +27,7 @@ export const editNewWord = createAsyncThunk('words/editNewPost', async (newWord)
     const { id } = newWord;
     try {
         const response = await axios.put(`http://127.0.0.1:7001/words/${id}`, newWord)
-        return response.data
+        return newWord;
     } catch (err) {
         return err.message;
     }
@@ -37,7 +37,7 @@ export const deleteNewWord = createAsyncThunk('words/deleteNewPost', async (newW
     const { id } = newWord;
     try {
         await axios.delete(`http://127.0.0.1:7001/words/${id}`)
-        return newWord
+        return newWord;
     } catch (err) {
         return err.message;
     }
@@ -122,9 +122,9 @@ const wordsSlice = createSlice({
                 state.words.push(action.payload);
             })
             .addCase(editNewWord.fulfilled,(state, action) => {
-                const newWord = action.payload;
+                const editWord = action.payload;
                 const newWords = state.words.map((word, index) => (
-                    index===action.payload.id?newWord:word
+                    word.name===editWord.name?editWord:word
                 ));
                 state.words = newWords;
             })

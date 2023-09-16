@@ -18,7 +18,7 @@ const Wordslist = () => {
     else if(status==="fulfilled"){
         content =
         <div className="Wordslist">
-            <ShowWords className="Wordslist-left" selectedWords={selectedWords}/>
+            <ShowWords selectedWords={selectedWords}/>
             <div className="Wordslist-right">
                 <SearchBar setSelectedWords={setSelectedWords}/>
                 <WordsInfo selectedWords={selectedWords}/>
