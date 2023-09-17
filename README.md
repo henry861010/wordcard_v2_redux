@@ -9,18 +9,17 @@
 ## note  
 1. the openai package updates to v4 from v3. some api in package are not supported anymore. to begin the openai project:   
 older version(not avaiable):  
-import { Configuration, OpenAIApi } from "openai";  
-const configuration = new Configuration({  
-    organization: "org-RxKuWyIn5DCxd9h4TCsOyFx5",  
-    apiKey: process.env.OPENAI_API_KEY,  
-});  
-const openai = new OpenAIApi(configuration);  
-const responseJSON = await openai.chat.completions.create();  
-
+    import { Configuration, OpenAIApi } from "openai";  
+    const configuration = new Configuration({  
+        organization: "org-RxKuWyIn5DCxd9h4TCsOyFx5",  
+        apiKey: process.env.OPENAI_API_KEY,  
+    });  
+    const openai = new OpenAIApi(configuration);  
+    const responseJSON = await openai.chat.completions.create();
 new version:  
-import OpenAI from 'openai';  
-const openai = new OpenAI({apiKey: process.env.OPENAI_API_KEY, dangerouslyAllowBrowser: true });  
-const responseJSON = await openai.chat.completions.create();  
+    import OpenAI from 'openai';  
+    const openai = new OpenAI({apiKey: process.env.OPENAI_API_KEY, dangerouslyAllowBrowser: true });  
+    const responseJSON = await openai.chat.completions.create();  
 (reference: https://platform.openai.com/docs/guides/gpt/chat-completions-api)  
 
 
