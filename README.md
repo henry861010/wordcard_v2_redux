@@ -1,5 +1,5 @@
 # wordcard
-Wordcar is a ReactJS-based web application that serves as your word management tool. It's a side project dedicated to honing my front-end web development skills. With Wordcar, you can efficiently manage your vocabulary.
+Wordcard is a ReactJS-based web application that serves as your word management tool. It's a side project dedicated to honing my front-end web development skills. With Wordcar, you can efficiently manage your vocabulary.
 ## introduction
 ### function
 1. record the word through the web browser
